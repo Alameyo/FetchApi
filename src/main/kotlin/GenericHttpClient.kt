@@ -14,5 +14,4 @@ class GenericHttpClient {
     }
 
     private fun sendRequest(request: HttpRequest) = httpClient.send(request, ofString())
-
 }

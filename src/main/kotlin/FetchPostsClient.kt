@@ -11,4 +11,3 @@ class FetchPostsClient {
 
     private fun String.toJsonArray(): JsonArray = parseString(this).asJsonArray
 }
-

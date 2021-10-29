@@ -4,7 +4,6 @@ import org.junit.jupiter.api.Assertions.assertTrue
 import org.junit.jupiter.api.Test
 import java.io.File
 
-
 class PostSaverTest {
     private val postSaver = PostSaver()
     private val examplePostString =
