@@ -4,5 +4,5 @@ import com.google.gson.JsonObject
 
 class PostsDivider {
 
-    fun dividePosts(jsonArray: JsonArray): List<JsonElement> = jsonArray.toList()
+    fun dividePosts(jsonArray: JsonArray) = jsonArray.toList()
 }
