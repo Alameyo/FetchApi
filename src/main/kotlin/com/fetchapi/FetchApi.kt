@@ -1,3 +1,5 @@
+package com.fetchapi
+
 import com.google.gson.JsonObject
 import com.fetchapi.execution.PostsDivider
 import com.fetchapi.files.PostSaver

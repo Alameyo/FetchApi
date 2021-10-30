@@ -14,7 +14,7 @@ class PostSaverTest {
     private val examplePost = parseString(examplePostString) as JsonObject
     private val expectedFilePath = "2.json"
 
-    @Test()
+    @Test
     fun `JsonObject - should be saved to file with path and json as file extension for post containing id 2`() {
         postSaver.save(examplePost)
         val file = File(expectedFilePath)
