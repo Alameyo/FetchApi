@@ -7,12 +7,18 @@ private val postsDivider = PostsDivider()
 private val postValidator = PostValidator()
 private val postSaver = PostSaver()
 private var directoryToSaveFiles = "${getProperty("user.dir")}${separator}results$separator"
+private var fetchDataEndpoint = "https://jsonplaceholder.typicode.com/posts"
 
 fun main(args: Array<String>) {
-    if(args.isNotEmpty() && args[0].isNotBlank()) {
-        directoryToSaveFiles = args[0]
+    if (args.isNotEmpty()) {
+        if (args[0].isNotBlank()) {
+            directoryToSaveFiles = args[0]
+        }
+        if(args[1].isNotBlank()) {
+            fetchDataEndpoint = args[1]
+        }
     }
-    val posts = fetchApiClient.fetchBlogPosts()
+    val posts = fetchApiClient.fetchBlogPosts(fetchDataEndpoint)
     val listOfPosts = posts.let { postsDivider.dividePosts(it) }
     listOfPosts.forEach { postValidator.validate(it as JsonObject) }
     listOfPosts.forEach { postSaver.save(it as JsonObject, directoryToSaveFiles)  }
