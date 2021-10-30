@@ -2,6 +2,8 @@ import com.google.gson.JsonParser.parseString
 import org.junit.jupiter.api.Assertions.assertDoesNotThrow
 import org.junit.jupiter.api.Assertions.assertThrows
 import org.junit.jupiter.api.Test
+import com.fetchapi.validation.InputValidationException
+import com.fetchapi.validation.PostValidator
 
 class PostValidatorTest {
     private val postValidator = PostValidator()

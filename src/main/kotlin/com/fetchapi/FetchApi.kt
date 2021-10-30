@@ -1,4 +1,8 @@
 import com.google.gson.JsonObject
+import com.fetchapi.execution.PostsDivider
+import com.fetchapi.files.PostSaver
+import com.fetchapi.http.FetchPostsClient
+import com.fetchapi.validation.PostValidator
 import java.io.File.separator
 import java.lang.System.getProperty
 

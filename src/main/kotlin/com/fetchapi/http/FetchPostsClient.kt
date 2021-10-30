@@ -1,3 +1,5 @@
+package com.fetchapi.http
+
 import com.google.gson.JsonArray
 import com.google.gson.JsonParser.parseString
 import java.net.URI.create

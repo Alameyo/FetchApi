@@ -1,3 +1,5 @@
+package com.fetchapi.files
+
 import com.google.gson.JsonObject
 
 class PostSaver {

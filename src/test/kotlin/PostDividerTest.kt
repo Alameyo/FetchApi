@@ -1,4 +1,5 @@
 import com.google.gson.JsonParser.parseString
+import com.fetchapi.execution.PostsDivider
 import org.junit.jupiter.api.Assertions.assertTrue
 import org.junit.jupiter.api.Test
 

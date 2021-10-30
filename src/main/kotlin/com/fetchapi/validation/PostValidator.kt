@@ -1,3 +1,5 @@
+package com.fetchapi.validation
+
 import com.google.gson.JsonObject
 
 class PostValidator {
