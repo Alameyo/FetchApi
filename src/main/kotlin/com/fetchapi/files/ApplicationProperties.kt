@@ -1,11 +1,7 @@
 package com.fetchapi.files
 
-import java.util.*
+import java.util.Properties
 
-fun main() {
-    val endpoint = ApplicationProperties().getValue("dataEndpoint")
-    println(endpoint)
-}
 
 class ApplicationProperties {
     private val inputStream = this::class.java.getResourceAsStream("/app.properties")
