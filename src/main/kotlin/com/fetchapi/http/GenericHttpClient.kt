@@ -10,7 +10,6 @@ import java.net.http.HttpResponse.BodyHandlers.ofString
 import javax.net.ssl.SSLParameters
 
 class GenericHttpClient {
-
     init {
         setProperty("jdk.tls.namedGroups", "secp521r1")
     }

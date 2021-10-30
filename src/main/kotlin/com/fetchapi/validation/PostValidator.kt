@@ -3,7 +3,6 @@ package com.fetchapi.validation
 import com.google.gson.JsonObject
 
 class PostValidator {
-
     fun validate(post: JsonObject) {
         val userId = post.get("userId")?.asLong
         val id = post.get("id")?.asLong
