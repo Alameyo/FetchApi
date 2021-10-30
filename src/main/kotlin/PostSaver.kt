@@ -2,13 +2,13 @@ import com.google.gson.JsonObject
 
 class PostSaver {
     private val fileSaver = FileSaver()
-    private fun createPath(pathPrefix: String, jsonElement: JsonObject): String {
+    private fun createFileName(jsonElement: JsonObject): String {
         val id = jsonElement.get("id").asLong
-        return "$pathPrefix$id.json"
+        return "$id.json"
     }
 
-    fun save(jsonObject: JsonObject, pathPrefix: String = "") {
-        val path = createPath(pathPrefix,jsonObject)
-        fileSaver.save(path, jsonObject.toString())
+    fun save(jsonObject: JsonObject, directory: String? = null) {
+        val fileName = createFileName(jsonObject)
+        fileSaver.save(directory, fileName, jsonObject.toString())
     }
 }
