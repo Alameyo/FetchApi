@@ -2,6 +2,7 @@ package com.fetchapi
 
 import com.google.gson.JsonObject
 import com.fetchapi.execution.PostsDivider
+import com.fetchapi.files.ApplicationProperties
 import com.fetchapi.files.PostSaver
 import com.fetchapi.http.FetchPostsClient
 import com.fetchapi.validation.PostValidator
@@ -12,8 +13,9 @@ private val fetchApiClient = FetchPostsClient()
 private val postsDivider = PostsDivider()
 private val postValidator = PostValidator()
 private val postSaver = PostSaver()
+private val applicationProperties = ApplicationProperties()
 private var directoryToSaveFiles = "${getProperty("user.dir")}${separator}results$separator"
-private var fetchDataEndpoint = "https://jsonplaceholder.typicode.com/posts"
+private var fetchDataEndpoint = applicationProperties.getValue("dataEndpoint")
 
 fun main(args: Array<String>) {
     if (args.isNotEmpty()) {
