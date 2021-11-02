@@ -1,16 +1,14 @@
 package com.fetchapi
 
-import com.google.gson.JsonObject
-import com.fetchapi.execution.PostsDivider
 import com.fetchapi.files.ApplicationProperties
 import com.fetchapi.files.PostSaver
 import com.fetchapi.http.FetchPostsClient
 import com.fetchapi.validation.PostValidator
+import com.google.gson.JsonObject
 import java.io.File.separator
 import java.lang.System.getProperty
 
 private val fetchApiClient = FetchPostsClient()
-private val postsDivider = PostsDivider()
 private val postValidator = PostValidator()
 private val postSaver = PostSaver()
 private val applicationProperties = ApplicationProperties()
@@ -26,8 +24,7 @@ fun main(args: Array<String>) {
             fetchDataEndpoint = args[1]
         }
     }
-    val posts = fetchApiClient.fetchBlogPosts(fetchDataEndpoint)
-    val listOfPosts = posts.let { postsDivider.dividePosts(it) }
-    listOfPosts.forEach { postValidator.validate(it as JsonObject) }
-    listOfPosts.forEach { postSaver.save(it as JsonObject, directoryToSaveFiles)  }
+    val posts = fetchApiClient.fetchBlogPosts(fetchDataEndpoint).toList()
+    posts.forEach { postValidator.validate(it as JsonObject) }
+    posts.forEach { postSaver.save(it as JsonObject, directoryToSaveFiles)  }
 }
